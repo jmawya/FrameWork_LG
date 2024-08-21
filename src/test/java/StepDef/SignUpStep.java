@@ -6,11 +6,14 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
 public class SignUpStep extends config {
     Faker f=new Faker();
+
+
     @Given("Customer at LG Parts Homepage")
     public void customerAtLGPartsHomepage() {
     String exp="LG Replacement Parts | Genuine Appliance Parts & Accessories| LG Parts";
@@ -72,9 +75,11 @@ public class SignUpStep extends config {
     }
 
     @Then("Customer successfully able to create an account in LG parts")
-    public void customerisnotAbleToCreateAnAccountInLGParts() {
+    public void customerisnotAbleToCreateAnAccountInLGParts() throws InterruptedException {
         String exp="Home";
         String act=driver.findElement(By.xpath("//*[@id='wpbBreadcrumbs']/div/div/div/div/nav/ol/li/a/span")).getText();
         Assert.assertEquals(act, exp);
+        driver.findElement(By.xpath("//*[@id='wpbBreadcrumbs']/div/div/div/div/nav/ol/li/a/span")).click();
+        Thread.sleep(1500);
     }
 }

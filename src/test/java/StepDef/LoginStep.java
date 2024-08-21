@@ -30,6 +30,7 @@ public class LoginStep extends config {
         String exp="Home";
         String act=driver.findElement(By.xpath("//*[@id='wpbBreadcrumbs']/div/div/div/div/nav/ol/li/a/span")).getText();
         Assert.assertEquals(act, exp);
+        driver.findElement(By.xpath("//*[@id='wpbBreadcrumbs']/div/div/div/div/nav/ol/li/a/span")).click();
     }
 
     @And("Customer enter their invalid email log in page")
@@ -47,5 +48,7 @@ public class LoginStep extends config {
         String exp="Home";
         String act=driver.findElement(By.xpath("//*[@id='wpbBreadcrumbs']/div/div/div/div/nav/ol/li/a/span")).getText();
         Assert.assertEquals(act, exp);
+        driver.findElement(By.xpath("//*[@id='wpbBreadcrumbs']/div/div/div/div/nav/ol/li/a/span")).click();
+
     }
 }
