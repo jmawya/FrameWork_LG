@@ -67,8 +67,8 @@ public class SignUpStep extends config {
 
     @Then("Customer is not able to create an account in LG parts")
     public void customerSuccessfullyAbleToCreateAnAccountInLGParts() {
-        String exp="Home";
-        String act=driver.findElement(By.xpath("//*[@id='wpbBreadcrumbs']/div/div/div/div/nav/ol/li/a/span")).getText();
+        String exp="Create Account";
+        String act=driver.findElement(By.xpath("//*[@id='pageContent']/div/div/div/div/div/h1")).getText();
         Assert.assertEquals(act, exp);
 
 
@@ -81,5 +81,10 @@ public class SignUpStep extends config {
         Assert.assertEquals(act, exp);
         driver.findElement(By.xpath("//*[@id='wpbBreadcrumbs']/div/div/div/div/nav/ol/li/a/span")).click();
         Thread.sleep(1500);
+    }
+
+    @And("Customer enter their invalid email")
+    public void customerEnterTheirInvalidEmail() {
+        driver.findElement(By.name("customer[email]")).sendKeys("jmawya07gmail.com");
     }
 }
