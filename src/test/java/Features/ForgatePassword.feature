@@ -7,4 +7,4 @@ Scenario: Ensure student successfully recover their password
   And Customer enter their valid email for reset password
   And Customer click on submit button
   And Customer go to gmail homepage
-  And customer enter their valid email in google homepage
+  And customer enter their valid email in google homepageg
