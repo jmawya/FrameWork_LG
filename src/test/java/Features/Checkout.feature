@@ -8,3 +8,10 @@ Feature: Checkout
     And Customer click on view cart
     And Customer click on checkout button
     And Customer enter their invalid email in checkout page
+    And Customer enter their FirstName in checkout page
+    And Customer enter their lastname in checkout page
+    And Customer enter their Address in checkout page
+    And Customer enter their city  in checkout page
+    And Customer enter their state  in checkout page
+    And Customer enter their zip code  in checkout page
+    And Customer enter their phone number  in checkout page
