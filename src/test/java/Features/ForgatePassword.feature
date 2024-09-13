@@ -1,4 +1,4 @@
-Feature: Forgate password
+Feature: Forgot password
 Scenario: Ensure student successfully recover their password
   Given Customer at LG Parts Homepage
   And Customer click on log in link

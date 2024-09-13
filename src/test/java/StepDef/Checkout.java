@@ -2,6 +2,7 @@ package StepDef;
 
 import base.config;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,6 +10,12 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+import static java.time.Duration.of;
+import static java.time.Duration.ofSeconds;
 
 public class Checkout extends config {
 
@@ -23,40 +30,39 @@ public class Checkout extends config {
 
     @And("Customer click on view cart")
     public void customerClickOnViewCart() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(150));
 
         driver.findElement(By.xpath("//*[@id='cartContainer']/form/div/div[3]/div[2]/div[2]/a")).click();
 
     }
 
 
-    @And("Customer click on checkout button")
+    @And("customer click on check out button")
     public void customerClickOnCheckout() {
-
-       driver.findElement(By.id("checkoutbttn")).click();
-
-    }
-
-    @And("Customer enter their invalid email in checkout page")
-    public void customerEnterTheirInvalidEmailInCheckoutPage() {
-        driver.findElement(By.xpath("//*[@id='email']")).sendKeys("jmawya07@gmail.com");
+        WebElement nine=driver.findElement(By.cssSelector("input[value='Check Out']"));
+        WebDriverWait wait=new WebDriverWait(driver, ofSeconds(40));
+        wait.until(ExpectedConditions.visibilityOf(nine));
+        nine.click();
 
     }
+
+
 
     @And("Customer enter their FirstName in checkout page")
     public void customerEnterTheirFirstNameInCheckoutPage() {
-        driver.findElement(By.cssSelector("input[placeholder='First name']")).sendKeys("Jannatul");
+
+         driver.findElement(By.xpath("//*[@id=\"TextField0\"]")).sendKeys("Jannatul");
+
     }
 
     @And("Customer enter their lastname in checkout page")
     public void customerEnterTheirLastnameInCheckoutPage() {
 
-        driver.findElement(By.cssSelector("input[placeholder='Last name']")).sendKeys("Mawya");
+        driver.findElement(By.xpath("//*[@id=\"TextField1\"]")).sendKeys("Mawya");
     }
 
     @And("Customer enter their Address in checkout page")
     public void customerEnterTheitAddressInCheckoutPage() {
-        driver.findElement(By.cssSelector("input[placeholder='Address']")).sendKeys("674 Rockaway Parkway");
+        driver.findElement(By.xpath("//*[@id=\"shipping-address1\"]")).sendKeys("674 Rockaway Parkway");
     }
 
     @And("Customer enter their city  in checkout page")
@@ -80,6 +86,65 @@ public class Checkout extends config {
     @And("Customer enter their phone number  in checkout page")
     public void customerEnterTheirPhoneNumberInCheckoutPage() {
 
-        driver.findElement(By.xpath("//*[@id=\"TextField14\"]")).sendKeys("1 (601) 952-1325");
+        driver.findElement(By.cssSelector("input[placeholder='Phone']")).sendKeys("1 (601) 952-1325");
+    }
+
+    @And("customer enter email")
+    public void customerEnterEmail() {
+
+        WebElement nine=driver.findElement(By.cssSelector("input[placeholder='Email']"));
+        WebDriverWait wait=new WebDriverWait(driver, ofSeconds(40));
+        wait.until(ExpectedConditions.visibilityOf(nine));
+        nine.sendKeys("jmawya07@gmail.com");
+        }
+
+    @And("Customer enter valid card number")
+    public void customerEnterValidCardNumber() {
+        List<WebElement> na=driver.findElements(By.tagName("iframe"));
+        System.out.println(na.size());
+        driver.switchTo().frame(0);
+
+        WebElement nine=driver.findElement(By.cssSelector("input[placeholder='Card number']"));
+        WebDriverWait wait=new WebDriverWait(driver, ofSeconds(500));
+        wait.until(ExpectedConditions.visibilityOf(nine));
+        nine.sendKeys("4111 1111 1111 1111");
+    }
+
+    @And("Customer enter card expire date")
+    public void customerEnterCardExpireDate() {
+        List<WebElement> a=driver.findElements(By.tagName("iframe"));
+        System.out.println(a.size());
+        driver.switchTo().defaultContent();
+        driver.switchTo().frame(1);
+
+
+
+        WebElement nine=driver.findElement(By.cssSelector("input[placeholder='Expiration date (MM / YY)']"));
+        WebDriverWait Wait=new WebDriverWait(driver, ofSeconds(600));
+        Wait.until(ExpectedConditions.visibilityOf(nine));
+        nine.sendKeys("8/30");
+    }
+
+    @And("Customer enter valid security code")
+    public void customerEnterValidSecurityCode() {
+        List<WebElement> ad=driver.findElements(By.tagName("iframe"));
+        System.out.println(ad.size());
+        driver.switchTo().defaultContent();
+        driver.switchTo().frame(2);
+
+        WebElement nine=driver.findElement(By.cssSelector("input[placeholder='Security code']"));
+        WebDriverWait wait=new WebDriverWait(driver,ofSeconds(600));
+        wait.until(ExpectedConditions.visibilityOf(nine));
+        nine.sendKeys("852");
+    }
+
+    @When("Customer click on continue button from checkout page")
+    public void customerClickOnContinueButtonFromCheckoutPage() {
+        driver.switchTo().defaultContent();
+      WebElement D=driver.findElement(By.cssSelector("button[id='checkout-pay-button']"));
+      WebDriverWait wait=new WebDriverWait(driver,ofSeconds(600));
+      wait.until(ExpectedConditions.visibilityOf(D));
+      D.click();
     }
 }
+
