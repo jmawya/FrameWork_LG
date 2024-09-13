@@ -1,7 +1,7 @@
 Feature: sign in
 Background:
-  Given Customer at LG Parts Homepage
-  And Customer click on log in link
+  Given customer at LG Parts Homepage
+  And customer click on log in link
   And Customer click on create account link
 
 Scenario: Ensure customer successfully able to create an account in LG parts

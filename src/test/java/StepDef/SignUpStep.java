@@ -14,14 +14,14 @@ public class SignUpStep extends config {
     Faker f=new Faker();
 
 
-    @Given("Customer at LG Parts Homepage")
+    @Given("customer at LG Parts Homepage")
     public void customerAtLGPartsHomepage() {
     String exp="LG Replacement Parts | Genuine Appliance Parts & Accessories| LG Parts";
     String act=driver.getTitle();
         Assert.assertEquals(act, exp);
     }
 
-    @And("Customer click on log in link")
+    @And("customer click on log in link")
     public void customerClickOnLogInLink() {
         driver.findElement(By.cssSelector("i[class='fa fa-user-o ll-at-background-prevent']")).click();
     }
@@ -76,10 +76,12 @@ public class SignUpStep extends config {
 
     @Then("Customer successfully able to create an account in LG parts")
     public void customerisnotAbleToCreateAnAccountInLGParts() throws InterruptedException {
+
+        driver.findElement(By.xpath("//*[@id='wpbHeaderMain']/div[1]/div/div/div[4]/ul/li[1]/a/i")).click();
         String exp="Home";
         String act=driver.findElement(By.xpath("//*[@id='wpbBreadcrumbs']/div/div/div/div/nav/ol/li/a/span")).getText();
         Assert.assertEquals(act, exp);
-        driver.findElement(By.xpath("//*[@id='wpbBreadcrumbs']/div/div/div/div/nav/ol/li/a/span")).click();
+      //  driver.findElement(By.xpath("//*[@id='wpbBreadcrumbs']/div/div/div/div/nav/ol/li/a/span")).click();
         Thread.sleep(1500);
     }
 

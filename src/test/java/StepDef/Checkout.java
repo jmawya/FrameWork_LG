@@ -19,16 +19,16 @@ import static java.time.Duration.ofSeconds;
 
 public class Checkout extends config {
 
-    @And("Customer click in LG EAY{int} ADAPTERS from search result page")
+    @And("customer click in LG EAY{int} ADAPTERS from search result page")
     public void customerClickInLGEAYADAPTERSFromSearchResultPage(int arg0) {
         driver.findElement(By.linkText("LG EAY62990908 ADAPTERS")).click();
     }
-    @And("Customer click on Add to cart")
+    @And("customer click on Add to cart")
     public void customerClickOnAddToCart() {
         driver.findElement(By.id("AddToCart")).click();
     }
 
-    @And("Customer click on view cart")
+    @And("customer click on view cart")
     public void customerClickOnViewCart() {
 
         driver.findElement(By.xpath("//*[@id='cartContainer']/form/div/div[3]/div[2]/div[2]/a")).click();
@@ -47,43 +47,43 @@ public class Checkout extends config {
 
 
 
-    @And("Customer enter their FirstName in checkout page")
+    @And("customer enter their FirstName in checkout page")
     public void customerEnterTheirFirstNameInCheckoutPage() {
 
          driver.findElement(By.xpath("//*[@id=\"TextField0\"]")).sendKeys("Jannatul");
 
     }
 
-    @And("Customer enter their lastname in checkout page")
+    @And("customer enter their lastname in checkout page")
     public void customerEnterTheirLastnameInCheckoutPage() {
 
         driver.findElement(By.xpath("//*[@id=\"TextField1\"]")).sendKeys("Mawya");
     }
 
-    @And("Customer enter their Address in checkout page")
+    @And("customer enter their Address in checkout page")
     public void customerEnterTheitAddressInCheckoutPage() {
         driver.findElement(By.xpath("//*[@id=\"shipping-address1\"]")).sendKeys("674 Rockaway Parkway");
     }
 
-    @And("Customer enter their city  in checkout page")
+    @And("customer enter their city  in checkout page")
     public void customerEnterTheirCityInCheckoutPage() {
         driver.findElement(By.name("city")).sendKeys("Brooklyn");
     }
 
-    @And("Customer enter their state  in checkout page")
+    @And("customer enter their state  in checkout page")
     public void customerEnterTheirStateInCheckoutPage() {
       WebElement list = driver.findElement(By.name("zone"));
       Select se =new Select(list);
       se.selectByVisibleText("New York");
     }
 
-    @And("Customer enter their zip code  in checkout page")
+    @And("customer enter their zip code  in checkout page")
     public void customerEnterTheirZipCodeInCheckoutPage() {
 
         driver.findElement(By.name("postalCode")).sendKeys("11236");
     }
 
-    @And("Customer enter their phone number  in checkout page")
+    @And("customer enter their phone number  in checkout page")
     public void customerEnterTheirPhoneNumberInCheckoutPage() {
 
         driver.findElement(By.cssSelector("input[placeholder='Phone']")).sendKeys("1 (601) 952-1325");
@@ -98,7 +98,7 @@ public class Checkout extends config {
         nine.sendKeys("jmawya07@gmail.com");
         }
 
-    @And("Customer enter valid card number")
+    @And("customer enter valid card number")
     public void customerEnterValidCardNumber() {
         List<WebElement> na=driver.findElements(By.tagName("iframe"));
         System.out.println(na.size());
@@ -110,7 +110,7 @@ public class Checkout extends config {
         nine.sendKeys("4111 1111 1111 1111");
     }
 
-    @And("Customer enter card expire date")
+    @And("customer enter card expire date")
     public void customerEnterCardExpireDate() {
         List<WebElement> a=driver.findElements(By.tagName("iframe"));
         System.out.println(a.size());
@@ -125,7 +125,7 @@ public class Checkout extends config {
         nine.sendKeys("8/30");
     }
 
-    @And("Customer enter valid security code")
+    @And("customer enter valid security code")
     public void customerEnterValidSecurityCode() {
         List<WebElement> ad=driver.findElements(By.tagName("iframe"));
         System.out.println(ad.size());
@@ -138,7 +138,7 @@ public class Checkout extends config {
         nine.sendKeys("852");
     }
 
-    @When("Customer click on continue button from checkout page")
+    @When("customer click on continue button from checkout page")
     public void customerClickOnContinueButtonFromCheckoutPage() {
         driver.switchTo().defaultContent();
       WebElement D=driver.findElement(By.cssSelector("button[id='checkout-pay-button']"));
