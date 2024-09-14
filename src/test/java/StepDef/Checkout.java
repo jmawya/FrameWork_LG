@@ -62,7 +62,15 @@ public class Checkout extends config {
 
     @And("customer enter their Address in checkout page")
     public void customerEnterTheitAddressInCheckoutPage() {
-        driver.findElement(By.xpath("//*[@id=\"shipping-address1\"]")).sendKeys("674 Rockaway Parkway");
+
+       WebElement a= driver.findElement(By.cssSelector("input[placeholder='Address']"));
+       try{
+           a.sendKeys("674 Rockaway Parkway");
+        }catch(Exception e){
+           a= driver.findElement(By.cssSelector("input[placeholder='Address']"));
+           a.sendKeys("674 Rockaway Parkway");
+       }
+
     }
 
     @And("customer enter their city  in checkout page")
@@ -89,14 +97,7 @@ public class Checkout extends config {
         driver.findElement(By.cssSelector("input[placeholder='Phone']")).sendKeys("1 (601) 952-1325");
     }
 
-    @And("customer enter email")
-    public void customerEnterEmail() {
 
-        WebElement nine=driver.findElement(By.cssSelector("input[placeholder='Email']"));
-        WebDriverWait wait=new WebDriverWait(driver, ofSeconds(40));
-        wait.until(ExpectedConditions.visibilityOf(nine));
-        nine.sendKeys("jmawya07@gmail.com");
-        }
 
     @And("customer enter valid card number")
     public void customerEnterValidCardNumber() {

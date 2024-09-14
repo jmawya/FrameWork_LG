@@ -10,7 +10,7 @@ import org.testng.Assert;
 public class LoginStep extends config {
     @And("customer enter their valid email log in page")
     public void customerEnterTheirValidEmailLogInPage() {
-        driver.findElement(By.name("customer[email]")).sendKeys("jmawya305@gmail.com");
+        driver.findElement(By.name("customer[email]")).sendKeys("jmawya07@gmail.com");
 
     }
 

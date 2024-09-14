@@ -12,9 +12,6 @@ Feature: Checkout
     And customer click on Add to cart
     And customer click on view cart
     And customer click on check out button
-    And customer enter email
-    And customer enter their FirstName in checkout page
-    And customer enter their lastname in checkout page
     And customer enter their Address in checkout page
     And customer enter their city  in checkout page
     And customer enter their state  in checkout page
